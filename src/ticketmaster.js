@@ -2,7 +2,7 @@ const API_KEY = "TpBTehIeSiNSMBAs";
 
 // Search Ticketmaster for upcoming events by artist name
 export async function searchEventsByArtist(artistName) {
-  const url = `http://localhost:3001/api/shows?artist=${encodeURIComponent(artistName)}`;
+ const url = `https://marquee-gqsw.onrender.com/api/shows?artist=${encodeURIComponent(artistName)}`;
 
   const response = await fetch(url);
   const data = await response.json();
