@@ -138,15 +138,23 @@ useEffect(() => {
   }
 }, []);
   const filteredShows = useMemo(() => {
-    return realShows.filter((s) => {
-      const matchesQuery =
-        query.trim() === "" ||
-        s.artist.toLowerCase().includes(query.toLowerCase()) ||
-        s.city.toLowerCase().includes(query.toLowerCase());
-      const matchesSource = sourceFilter === "all" || s.source === sourceFilter;
-      return matchesQuery && matchesSource;
-    }).sort((a, b) => a.date.localeCompare(b.date));
-  }, [query, sourceFilter]);
+  // Remove duplicate shows (same event ID)
+  const seen = new Set();
+  const uniqueShows = realShows.filter((s) => {
+    if (seen.has(s.id)) return false;
+    seen.add(s.id);
+    return true;
+  });
+
+  return uniqueShows.filter((s) => {
+    const matchesQuery =
+      query.trim() === "" ||
+      s.artist.toLowerCase().includes(query.toLowerCase()) ||
+      s.city.toLowerCase().includes(query.toLowerCase());
+    const matchesSource = sourceFilter === "all" || s.source === sourceFilter;
+    return matchesQuery && matchesSource;
+  }).sort((a, b) => a.date.localeCompare(b.date));
+}, [query, sourceFilter, realShows]);
 
   return (
     <div className="min-h-screen w-full flex justify-center bg-[#0A0A0C]">
