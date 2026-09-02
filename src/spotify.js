@@ -1,5 +1,5 @@
 const CLIENT_ID = "e2328098412d4e8983285ecae8dc7b01";
-const REDIRECT_URI = "http://127.0.0.1:5173/callback";
+const REDIRECT_URI = window.location.origin + "/callback";
 const SCOPES = "user-follow-read user-top-read";
 
 // Step A: generate a random string Spotify uses to verify it's really us
