@@ -60,9 +60,9 @@ function TicketStub({ show, expanded, onToggle }) {
             <div className="flex items-center gap-2 mb-0.5">
               <h3 className="font-marquee text-lg leading-none tracking-wide text-[#F5EFE6] truncate">{show.artist}</h3>
             </div>
-            <div className="flex items-center gap-1 text-[#B8B8C0] text-sm mb-1.5">
+            <div className="flex items-center gap-1 text-[#B8B8C0] text-sm mb-1.5 min-w-0">
               <MapPin size={13} className="shrink-0" style={{ color: "#6B6B76" }} />
-              <span className="truncate">{show.venue} · {show.city}</span>
+              <span className="truncate block min-w-0">{show.venue} · {show.city}</span>
             </div>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full" style={{ color: statusColor, backgroundColor: statusColor + "1A" }}>
