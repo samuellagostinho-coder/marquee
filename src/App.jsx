@@ -244,7 +244,7 @@ useEffect(() => {
           )}
           {filteredShows.map((show) => (
     <div key={`${show.id}-${show.artist}`} className="flex items-stretch gap-2">
-              <div className="flex-1">
+              <div className="flex-1" min-w-0>
                 <TicketStub show={show} expanded={expandedId === show.id} onToggle={() => setExpandedId(expandedId === show.id ? null : show.id)} />
               </div>
               <button
