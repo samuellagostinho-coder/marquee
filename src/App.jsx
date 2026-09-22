@@ -141,8 +141,9 @@ useEffect(() => {
   // Remove duplicate shows (same event ID)
   const seen = new Set();
   const uniqueShows = realShows.filter((s) => {
-    if (seen.has(s.id)) return false;
-    seen.add(s.id);
+    const key = `${s.artist}-${s.venue}-${s.date}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
     return true;
   });
 
@@ -166,7 +167,7 @@ useEffect(() => {
         * { font-family: 'Inter', sans-serif; }
       `}</style>
 
-      <div className="w-full max-w-md min-h-screen bg-[#0E0E10] flex flex-col">
+      <div className="w-full max-w-md min-h-screen bg-[#0E0E10] flex flex-col overflow-x-hidden">
         <header className="sticky top-0 z-10 bg-[#0E0E10]/95 backdrop-blur border-b border-[#1E1E22] px-5 pt-6 pb-4">
           <div className="flex items-center justify-between mb-1">
             <h1 className="font-marquee text-4xl tracking-wide text-[#F5EFE6] leading-none">MARQUEE</h1>
