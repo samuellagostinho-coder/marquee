@@ -45,7 +45,7 @@ function TicketStub({ show, expanded, onToggle }) {
         className="w-full text-left rounded-xl overflow-hidden border border-[#2A2A30] bg-[#17171B] active:scale-[0.99] transition-transform"
         style={{ boxShadow: expanded ? `0 0 0 1px ${src.color}55, 0 8px 24px -8px ${src.color}33` : "none" }}
       >
-        <div className="flex">
+        <div className="flex min-w-0">
           <div className="flex flex-col items-center justify-center px-4 py-4 border-r border-dashed border-[#33333A] min-w-[76px] relative">
             <span className="font-mono text-[11px] uppercase tracking-wider" style={{ color: "#6B6B76" }}>
               {new Date(show.date + "T00:00:00").toLocaleDateString("pt-BR", { month: "short" }).replace(".", "")}
