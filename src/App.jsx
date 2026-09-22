@@ -243,7 +243,7 @@ useEffect(() => {
             <div className="text-center py-16 text-[#6B6B76] text-sm">Nenhum show encontrado para esse filtro.</div>
           )}
           {filteredShows.map((show) => (
-    <div key={`${show.id}-${show.artist}`} className="flex items-stretch gap-2">
+    <div key={`${show.id}-${show.artist}`} className="flex items-stretch gap-2 min-w-0">
               <div className="flex-1" min-w-0>
                 <TicketStub show={show} expanded={expandedId === show.id} onToggle={() => setExpandedId(expandedId === show.id ? null : show.id)} />
               </div>
